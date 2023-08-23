@@ -1,0 +1,227 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00082f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h2 {
+    background-color: #ffffff;
+    border-left-width: 20px;
+    border-bottom-style:dotted;
+    border-color:#fd7231;
+    color:#000000;
+    margin: 0;
+    padding: 3px;
+}
+
+h3 {
+    background-color: #ffffff;
+    border-left-style: solid;
+    border-left-width: 20px;
+    border-bottom-style: solid;
+    border-color:#fd7231;
+    color:#000000;
+    margin: 0;
+    padding: 3px;
+}
+
+h4 {
+    padding-left: 20px;
+    margin:0;
+}
+
+h5 {
+    text-align:center;
+    font-weight: bolder;
+    margin:0;
+    font-size: 1.5em;
+}
+
+p {
+    padding-left: 20px;
+}
+
+Ol {
+    list-style-type: none
+}
+li {
+    padding: 3px;
+}
+
+a {
+    text-decoration:none;
+}
+.content-container {
+    max-width: 600px;
+    margin: 20px;
+    text-align: left;
+    color:#000000;
+}
+
+.code-container {
+    position: relative;
+    border: 1px solid #ddd; 
+    border-radius: 3px;
+}
+
+pre {
+    background-color: #000000;
+    color:#ffffff;
+    padding: 16px;
+    overflow: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+    font-size: 0.9em;
+}
+
+button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    background-color: #fd7231;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #fd7231;
+}
+
+.media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    max-width: 100%; /* Add this line */
+}
+
+.media-title {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.div-p,
+.div-img,
+.div-video,
+.div-table,
+.div-code,
+.div-links,
+.div-question,
+.div-answer,
+.div-procedure,
+.div-procedure-links {
+    width: 80%; /* Adjust this to change the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: medium solid #cacaca;
+    background-color: #eeeeee;   
+}
+
+
+
+img, video {
+    width: 100%;
+    height: auto;  /* Add this */
+}
+
+dt {
+    font-size: 1.2em;
+    font-weight: bolder;
+    text-indent: 3%;
+}
+table {
+    width: 100%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    background: #dfdfdf;
+    border: 4px solid #000000;
+  }
+  
+  thead {
+    text-align:center;
+    background: #143351;
+    color: #ffffff;
+  }
+  
+  tr td {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+/* トップページ */
+.div-toppage_link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%; /* Adjust this to change the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: medium solid #cacaca;
+    background-color: #eeeeee;
+}
+
+.category {
+    width: 50%; /* Adjust this to change the width */
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: medium solid #cacaca;
+    background-color: #143351;
+}
+.category h2{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.category a{
+    color: #eeeeee;
+    text-decoration: none;
+}
+
+/* カテゴリーページ */
+
+.div-thumbnail_link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%; /* Adjust this to change the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: medium solid #cacaca;
+    background-color: #eeeeee;
+}
+
+.item {
+    box-sizing: border-box;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title.name }}</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+</head>
+<body>
+    <div class="div-img">
+        <img src="{{ title.thumbnail_source }}" onerror="this.onerror=null; this.parentNode.innerHTML='<h1>'+this.alt+'</h1>';" alt="{{ title.name }}">
+    </div>
+
+    <div class="div-links">
+        <h2>Links</h2>
+        <ul>
+        {% for content in contents %}
+            <li><a href="#{{ content.name | replace(' ', '') }}">{{ content.name }}</a></li>
+        {% endfor %}
+        <!-- Add a link to the update data -->
+            <li><a href="#{{ update_data.name | replace(' ', '') }}">{{ update_data.name }}</a></li>
+        </ul>
+    </div>
+
+    {% for content in contents %}
+        {% if content.type == 'p' %}
+            <div class="div-p" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <p>{{ content.description }}</p>
+            </div>
+        {% elif content.type == 'question_writing' %}
+        <div class="div-table" id="{{ content.name | replace(' ', '') }}">
+            <h3>{{ content.name }}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in content.paragraph %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.description }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% elif content.type == 'glossary' %}
+            <div class="div-p" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <dl>
+                    <dd>{{ content.description }}</dd>
+                </dl>
+            </div>
+        {% elif content.type == 'glossary_table' %}
+            <div class="div-table" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Word</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in content.table %}
+                            <tr>
+                                <td>{{ item.word }}</td>
+                                <td>{{ item.description }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% elif content.type == 'table' %}
+            <div class="div-table" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            {% for header in content.headers %}
+                                <th>{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in content.rows %}
+                            <tr>
+                                {% for cell in row %}
+                                    <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% elif content.type == 'code' %}
+            <div class="div-code code-container" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <button onclick="copyToClipboard('codeBlock')">Copy to clipboard</button>
+                <pre id="codeBlock"><code>{{ content.code }}</code></pre>
+            </div>
+        {% elif content.type == 'img' %}
+            <div class="div-img" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <img src="{{ content.source }}" alt="{{ content.name }}">
+            </div>
+        {% elif content.type == 'video' %}
+            <div class="div-video" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <video src="{{ content.source }}" controls></video>
+            </div>
+        {% elif content.type == 'additional_information' %}
+            <div class="div-p" id="{{ content.name | replace(' ', '') }}">
+                <h3>{{ content.name }}</h3>
+                <p>{{ content.description }}</p>
+            </div>
+        {% endif %}
+        </div>
+    {% endfor %}
+    <!-- This goes at the end of your template -->
+    <div class="div-p" id="{{ update_data.name | replace(' ', '') }}">
+        <h3>{{ update_data.name }}</h3>
+        <p>{{ update_data.content|safe }}</p>
+    </div>
+    
+
+    <script src="script.js"></script>
+
+</body>
+</html>
